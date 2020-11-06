@@ -25,27 +25,11 @@ class Render_component(QOpenGLWidget):
         self.timerUpdate.timeout.connect(self.update)
         self.timerUpdate.start(12)
 
-
-
-        self.closeEvent(self.postDrawing)
-
     def preDrawing(self):
         pass
 
     def paintGL(self):
-        self.sphere = {
-            -1, -1
-                + 1, -1
-                + 1, +1
-                - 1, +1
-        }
-
-        self.vbo: GLdouble = None
-        glGenBuffers(1, self.vbo)
-        glBindBuffer(GL_ARRAY_BUFFER)
-        glBufferData(GL_ARRAY_BUFFER, sizeof(self.sphere))
-
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        pass
 
 
     def update(self):
