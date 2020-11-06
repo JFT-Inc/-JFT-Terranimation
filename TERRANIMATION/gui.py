@@ -31,7 +31,7 @@ class NewQWidget(QWidget):
 
         self.widget_area = QtWidgets.QScrollArea()
         self.widget_area.setGeometry(x, y, w, h)
-        self.component.append(Render_component())
+        #self.component.append(Render_component())
 
         self.layoutManager = QtWidgets.QGridLayout()
         for item in self.component:

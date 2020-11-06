@@ -92,9 +92,8 @@ class Terranimation:
         self.application.exit()
         self.run = False
 
-t = Terranimation(w = 100)
-
 if __name__ == "__main__":
+    t = Terranimation(w=100)
     t.show()
     t.boot()
 
