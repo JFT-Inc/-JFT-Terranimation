@@ -61,13 +61,8 @@ class Terranimation:
         self.event_engine = event.EventSquenceHandler()
         self.event_engine.registerEvent(lambda param: param.close, event.ButtonPressedEvent)
 
-        def fff(a):
-            #print("!!!!" + str(a))
-
-            a.exit()
-
-        #self.app_window.addCloseEvent(lambda a: a[0].exit(), self)
-        self.app_window.addCloseEvent(fff, self)
+        # add event to system
+        self.app_window.addCloseEvent(self.exit)
 
         self.application.exec_()
 
@@ -92,11 +87,14 @@ class Terranimation:
         pass
 
     def exit(self):
+        print("!!!!!!!!!!!!!")
+
         self.application.exit()
         self.run = False
 
+t = Terranimation(w = 100)
+
 if __name__ == "__main__":
-    t = Terranimation(w = 100)
     t.show()
     t.boot()
 

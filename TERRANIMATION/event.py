@@ -8,12 +8,15 @@ class Event:
         self.program = program
         self.event_data = list(args)
 
+EVENT_UI_CLOSING = "UI_CLOSING"
+
 class UiEvent(Event):
     gui = None
 
-    def __init__(self, args, widget):
+    def __init__(self, args, widget, event_code:str):
         super.__init__(self, args)
         self.gui = widget
+        self.name = event_code
 
 class ButtonPressedEvent(UiEvent):
     pressed_button = None

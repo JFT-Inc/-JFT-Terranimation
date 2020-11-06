@@ -6,9 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pyopengl-accelerate = "*"
 pyopengl = "*"
 pyside2 = "*"
+numpy = "*"
+pyopengl-accelerate = "*"
 
 [requires]
 python_version = "3.9"
