@@ -3,9 +3,8 @@ from PySide2.QtCore import QObject
 from PySide2.QtWidgets import QWidget
 from PySide2.QtGui import QCloseEvent
 
-from TERRANIMATION.graphics import Render_component
-from TERRANIMATION import event as _event
-from TERRANIMATION import terranimation as app
+from TERRANIMATION.gui.graphics import Render_component
+
 
 class NewQWidget(QWidget):
     screen_geometry = None
@@ -31,7 +30,7 @@ class NewQWidget(QWidget):
 
         self.widget_area = QtWidgets.QScrollArea()
         self.widget_area.setGeometry(x, y, w, h)
-        #self.component.append(Render_component())
+        self.component.append(Render_component())
 
         self.layoutManager = QtWidgets.QGridLayout()
         for item in self.component:
@@ -43,10 +42,8 @@ class NewQWidget(QWidget):
     def addCloseEvent(self, callback, *args):
         self.callback_dict[callback] = args
 
-        #print("!!!: " + str(callback) + " : "+ str(args))
 
     def closeEvent(self, event:QCloseEvent):
         for key in list(self.callback_dict.keys()):
             key(*self.callback_dict[key])
-        #app.t.event_engine.happen(_event.UiEvent(_event.EVENT_UI_CLOSING))
 

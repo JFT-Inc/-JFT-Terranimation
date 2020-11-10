@@ -20,9 +20,13 @@ import threading as thrd
 
 from TERRANIMATION import event
 from TERRANIMATION.gui import *
+import TERRANIMATION.gui.graphics
 
 
 # Application it self
+from TERRANIMATION.gui.gui import NewQWidget
+
+
 class Terranimation:
     event_engine = None
 
@@ -87,14 +91,10 @@ class Terranimation:
         pass
 
     def exit(self):
-        print("!!!!!!!!!!!!!")
-
         self.application.exit()
         self.run = False
 
 if __name__ == "__main__":
-    t = Terranimation(w=100)
+    t = Terranimation()
     t.show()
     t.boot()
-
-    print("My work is done!")
