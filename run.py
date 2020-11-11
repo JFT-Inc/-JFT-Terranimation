@@ -1,4 +1,6 @@
 import os
+from sys import platform
+
 #import imp
 __path__ = os.getcwd()
 
@@ -9,7 +11,15 @@ __path__ = os.getcwd()
 #
 # reload_func()
 
-command = "python3.9 ./TERRANIMATION/terranimation.py"
+
+if platform == "linux" or platform == "linux2":
+    command = "python3.9 ./TERRANIMATION/terranimation.py"
+elif platform == "darwin":
+    pass
+    # OS X
+elif platform == "win32":
+    command = "python ./TERRANIMATION/terranimation.py"
+
 
 print("command result: " + str(os.system(command)))
 #print(os.system("pause"))
