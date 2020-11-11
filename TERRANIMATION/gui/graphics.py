@@ -18,7 +18,6 @@ import math
 class Render_component(QOpenGLWidget):
     def __init__(self):
         super().__init__()
-        glutInit()
 
         self.preDrawing()
 
@@ -36,6 +35,9 @@ class Render_component(QOpenGLWidget):
         pass
 
     def paintGL(self):
+
+        
+
         glClear(GL_COLOR_BUFFER_BIT)
         glClearColor(0.2, 0.2, 0.2, 0.2)
 
