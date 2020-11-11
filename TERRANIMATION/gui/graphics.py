@@ -36,7 +36,7 @@ class Render_component(QOpenGLWidget):
 
     def paintGL(self):
 
-        
+
 
         glClear(GL_COLOR_BUFFER_BIT)
         glClearColor(0.2, 0.2, 0.2, 0.2)
