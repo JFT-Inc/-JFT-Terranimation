@@ -6,11 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-<<<<<<< HEAD
 pyopengl-accelerate = "*"
-=======
 pyopengl = "*"
->>>>>>> feature/graphics-and-component
+pyopengl-accelerate = "*"
 pyside2 = "*"
 numpy = "==1.19.3"
 cython = "*"
