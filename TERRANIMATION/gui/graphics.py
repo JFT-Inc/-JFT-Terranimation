@@ -32,20 +32,17 @@ class Render_component(QOpenGLWidget):
         viewX = int((self.width() - size) / 2)
         viewY = int((self.height() - size) / 2)
 
+    def paintGL(self):
+        size = 600
+
+        viewX = int((self.width() - size) / 2)
+        viewY = int((self.height() - size) / 2)
+
         glViewport(viewX, viewY, size, size)
 
-    def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT)
         glClearColor(0.2, 0.2, 0.2, 0.2)
 
-        # glBegin(GL_POLYGON)
-        # glColor3d(0, 1, 1)
-        # glVertex2d(-0.5, -0.5)
-        # glVertex2d(-0.5, 0.5)
-        # glColor3d(1, 0, 1)
-        # glVertex2d(0.5, 0.5)
-        # glVertex2d(1, -0.5)
-        
         PI = 3.14159265358979
 
         dens = 14
@@ -63,7 +60,7 @@ class Render_component(QOpenGLWidget):
         b = 0
         c = 0
 
-        for quarry in range(0, int(dens / 2 + 1)) :
+        for quarry in range(0, int(dens / 2 + 1)):
             glVertex3d(math.cos((PI / dens) * point), math.sin((PI / dens) * point), math.cos((PI / dens) * point))
 
             point += 1
@@ -74,9 +71,21 @@ class Render_component(QOpenGLWidget):
             #     pass
             # else:
             #
-            
+
         glEnd()
 
+        # glColor3d(0.3, 0.8, 0.3)
+        # glBegin(GL_POLYGON)
+        # glVertex2d(math.cos(0), math.sin(0))
+        # a += 1
+        # glVertex2d(math.cos((PI / 5) * a), math.sin((PI / 5) * a))
+        # a += 1
+        # glVertex2d(math.cos((PI / 5) * a), math.sin((PI / 5) * a))
+        # a += 1
+        # glVertex2d(math.cos((PI / 5) * a), math.sin((PI / 5) * a))
+        # a += 1
+        # glVertex2d(math.cos((PI / 5) * a), math.sin((PI / 5) * a))
+        # glEnd()
 
 
     def update(self):
