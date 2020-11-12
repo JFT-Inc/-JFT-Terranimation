@@ -6,9 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pyopengl-accelerate = "*"
 pyopengl = "*"
 pyopengl-accelerate = "*"
 pyside2 = "*"
+numpy = "==1.19.3"
+cython = "*"
+glumpy = "*"
 
 [requires]
 python_version = "3.9"
