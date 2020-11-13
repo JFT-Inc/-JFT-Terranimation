@@ -9,7 +9,19 @@ __path__ = os.getcwd()
 #
 # reload_func()
 
-command = "python3.9 ./TERRANIMATION/terranimation.py"
+pythonname = ""
+
+from sys import platform
+if platform == "linux" or platform == "linux2":
+    pythonname = "python3.9"
+    # linux
+elif platform == "darwin": pass
+    # OS X
+elif platform == "win32":
+    pythonname = "python"
+    # Windows...
+
+command = pythonname + " ./TERRANIMATION/terranimation.py"
 
 print("command result: " + str(os.system(command)))
 #print(os.system("pause"))

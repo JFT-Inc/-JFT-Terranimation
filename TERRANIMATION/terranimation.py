@@ -20,11 +20,10 @@ import threading as thrd
 
 from TERRANIMATION import event
 from TERRANIMATION.gui import *
-import TERRANIMATION.gui.graphics
 
 
 # Application it self
-from TERRANIMATION.gui.gui import NewQWidget
+from TERRANIMATION.gui.main_window import *
 
 
 class Terranimation:
