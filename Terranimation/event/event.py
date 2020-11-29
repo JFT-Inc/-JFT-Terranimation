@@ -1,5 +1,7 @@
 #from PySide2.QtWidgets import *
 
+EVENT_UI_CLOSING = "UI_CLOSING"
+
 class Event:
     event_data = None
     program = None
@@ -8,33 +10,8 @@ class Event:
         self.program = program
         self.event_data = list(args)
 
-EVENT_UI_CLOSING = "UI_CLOSING"
 
-class UiEvent(Event):
-    gui = None
 
-    def __init__(self, args, widget, event_code:str):
-        super.__init__(self, args)
-        self.gui = widget
-        self.name = event_code
-
-class ButtonPressedEvent(UiEvent):
-    pressed_button = None
-
-    def __init__(self, args, widget, button_type):
-        super.__init__(self, args, widget)
-        self.pressed_button = button_type
-
-class TopBarButtonPressedEvent(ButtonPressedEvent):
-    EXIT_BUTTON = 0
-
-    def __init__(self, args, widget, button_type):
-        super.__init__(self, args, widget, button_type)
-        if button_type not in {0, 1, 2}:
-            print("Warning: Unpopular button from the top bar")
-
-    def close(self):
-        self.gui.close()
 
 class AbstractEventHandler:
     def handle(self, eventobject):
@@ -54,10 +31,16 @@ class EventSquenceHandler:
         self.event_handlers = []
         self.simple_event = []
 
-    def registerEvent(self, callback, event_type = Event):
-        #print(str(self.event_and_callbacks.items()))
-        pass
-        #self.event_and_callbacks[event_type].appand(callback)
+    def addCallbackStoreage(self, event_type:Event):
+        self.event_and_callbacks
+
+    def registerEvent(self, callback, event_type: Event = Event): # 나중에 처리가될 수 있는 이벤트를 등록시킴
+        
+        # print(str(self.event_and_callbacks.items()))
+
+
+
+        self.event_and_callbacks[event_type].appand(callback)
 
     def registerEventHandler(self, eventHandler):
         self.event_handlers.append(eventHandler)
