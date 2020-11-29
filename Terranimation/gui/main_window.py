@@ -1,9 +1,9 @@
 from PySide2 import QtWidgets, QtCore
 from PySide2.QtCore import QObject
 from PySide2.QtWidgets import QWidget
-from PySide2.QtGui import QCloseEvent
+from PySide2.QtGui import QCloseEvent, QMouseEvent
 
-from TERRANIMATION.gui.graphics import Render_component
+from Terranimation.gui.graphics import Render_component
 
 
 class NewQWidget(QWidget):
@@ -43,14 +43,23 @@ class NewQWidget(QWidget):
         self.callback_dict[callback] = args
 
 
-    def keyPressEvent(event):   # QKeyEvent : event
-
-        print("1234")
-
+    def keyPressEvent(self, event):   # QKeyEvent : event
         if event.key() == QtCore.Qt.Key_Escape:
+            self.close()
             event.accept()
         else:
             event.ignore()
+
+    def mousePressEvent(self, event:QMouseEvent):
+        #print("Pointer at: " + str((event.x(), event.y())))
+
+
+
+        pass
+
+    def mouseMoveEvent(self, event:QMouseEvent):
+        print("Pointer at: " + str((event.x(), event.y())))
+        pass
 
     def closeEvent(self, event:QCloseEvent):
         for key in list(self.callback_dict.keys()):

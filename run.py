@@ -21,7 +21,7 @@ elif platform == "win32":
     pythonname = "python"
     # Windows...
 
-command = pythonname + " ./TERRANIMATION/terranimation.py"
+command = pythonname + " ./Terranimation/terranimation.py"
 
 print("command result: " + str(os.system(command)))
 #print(os.system("pause"))

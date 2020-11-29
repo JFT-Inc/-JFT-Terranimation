@@ -42,14 +42,14 @@ class Render_component(QOpenGLWidget):
         # glfw.make_context_current(self.context().currentContext())
 
 
-        # self.triangle = [0.0, 0.5, 0.0, 1.0, 0.0, 0.0,  # red
-        #
-        #                  0.5, -0.5, 0.0, 0.0, 1.0, 0.0,  # green
-        #                  -0.5, -0.5, 0.0, 0.0, 0.0, 1.0]  # blue
+        self.tetra_object = [0.0, 0.5, 0.0, 1.0, 1.0, 1.0,  # red
+
+                         0.5, -0.5, 0.0, 1.0, 1.0, 1.0,  # green
+                         -0.5, -0.5, 0.0, 1.0, 1.0, 1.0]  # blue
 
         self.dence = 14
 
-        self.tetra_object = [i for i in range(0, self.dence ** 2 + 1)  ]
+        #self.tetra_object = [i for i in range(0, self.dence ** 2 + 1)  ]
 
         self.tetra_object = np.array(self.tetra_object, dtype=np.float32)
 

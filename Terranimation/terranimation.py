@@ -13,17 +13,13 @@
 # Application owns every thing. but it is your duty to start and keep the application.
 
 from PySide2.QtWidgets import *
-from PySide2.QtGui import *
 
-import sys
 import threading as thrd
 
-from TERRANIMATION import event
-from TERRANIMATION.gui import *
-
+from Terranimation.event import event, UiEvent
 
 # Application it self
-from TERRANIMATION.gui.main_window import *
+from Terranimation.gui.main_window import *
 
 
 class Terranimation:
@@ -62,7 +58,10 @@ class Terranimation:
 
         # Event setup
         self.event_engine = event.EventSquenceHandler()
-        self.event_engine.registerEvent(lambda param: param.close, event.ButtonPressedEvent)
+
+        # 이벤트의 클래스를 등록해야 이벤트가 잡함.
+        self.event_engine.registerEvent(lambda param: param.close, UiEvent.ButtonPressedEvent)
+
 
         # add event to system
         self.app_window.addCloseEvent(self.exit)
